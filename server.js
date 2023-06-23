@@ -1,6 +1,6 @@
 const { WebSocketServer, WebSocket } = require('ws');
 
-const wss = new WebSocketServer({ port: 8008 });
+const wss = new WebSocketServer({ port: 4000 });
 
 const heartbeat = () => {
   this.isAlive = true;
