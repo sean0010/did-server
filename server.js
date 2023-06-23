@@ -2,24 +2,24 @@ const { WebSocketServer, WebSocket } = require('ws');
 
 const wss = new WebSocketServer({ port: 4000 });
 
-const heartbeat = () => {
-  this.isAlive = true;
-};
+// const heartbeat = () => {
+//   this.isAlive = true;
+// };
 
 
 wss.on('connection', function(ws) {
   ws.isAlive = true;
   //ws.on('pong', heartbeat);
-  const interval = setInterval(() => {
-    wss.clients.forEach((ws) => {
-      if (ws.isAlive === false) return ws.terminate();
+  // const interval = setInterval(() => {
+  //   wss.clients.forEach((ws) => {
+  //     if (ws.isAlive === false) return ws.terminate();
 
-      //ws.isAlive = false;
-      //ws.ping();
-    });
-  }, 30000);
+  //     //ws.isAlive = false;
+  //     //ws.ping();
+  //   });
+  // }, 30000);
   wss.on('close', () => {
-    clearInterval(interval);
+    //clearInterval(interval);
   });
   ws.on('error', console.error);
 
